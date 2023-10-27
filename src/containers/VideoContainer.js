@@ -1,26 +1,29 @@
-import { useState} from 'react';
-
+import React, { useState } from 'react';
+import YouTubeVideo from '../components/YouTubeVideo';
 
 function VideoContainer() {
-  const [searchWord, setSearchWord] = useState('');
+  const [videoUrl, setVideoUrl] = useState('');
+  const [showVideo, setShowVideo] = useState(false);
 
-  const handleSearch = (word) => {
-    setSearchWord(word);
+  const handleSearch = () => {
+    setShowVideo(true);
   };
-
 
   return (
     <div className="video-container">
-      {/* <VideoComponent transcript={transcript} searchWord={searchWord} /> */}
       <input
         type="text"
-        placeholder="Search for a word"
-        value={searchWord}
-        onChange={(e) => handleSearch(e.target.value)}
-        className="input-bar" 
+        placeholder="Paste YouTube video URL and press Enter"
+        value={videoUrl}
+        onChange={(e) => setVideoUrl(e.target.value)}
+        className="input-bar"
       />
+      <button onClick={handleSearch}>Load Video</button>
+
+      {showVideo && <YouTubeVideo videoUrl={videoUrl} />}
     </div>
   );
 }
 
 export default VideoContainer;
+
