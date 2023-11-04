@@ -1,6 +1,6 @@
 import React from 'react';
 
-function YouTubeVideo({ videoUrl }) {
+function YouTubeVideo({ videoUrl, loadVideoFlag }) {
   // Function to extract the video ID from the videoUrl
   function extractVideoId(videoUrl) {
     // Check if the videoUrl is valid
@@ -13,7 +13,7 @@ function YouTubeVideo({ videoUrl }) {
 
   const videoId = extractVideoId(videoUrl);
 
-  if (videoId) {
+  if (loadVideoFlag && videoId) {
     return (
       <div className="video-container">
         <iframe
