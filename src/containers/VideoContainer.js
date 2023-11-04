@@ -64,7 +64,7 @@ function VideoContainer() {
         onChange={(e) => handleVideoUrlChange(e.target.value)}
         className="input-bar"
       />
-      <button onClick={handleSearchClick}>Search</button>
+      <button onClick={handleSearchClick}>Load</button>
 
       <input
         type="text"
